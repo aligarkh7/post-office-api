@@ -5,6 +5,7 @@ import kz.dar.academy.backend.model.PostResponse;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -17,7 +18,7 @@ public interface PostFeign {
     @GetMapping("/post/all")
     List<PostModel> getAllPosts();
 
-    @GetMapping("/post/{postId}")
-    PostModel getPostById(@PathVariable String postId);
+    @GetMapping("/post")
+    PostModel getPostById(@RequestParam String postId);
 
 }

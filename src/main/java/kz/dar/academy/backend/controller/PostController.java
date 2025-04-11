@@ -7,10 +7,7 @@ import kz.dar.academy.backend.model.PostModel;
 import kz.dar.academy.backend.model.PostResponse;
 import kz.dar.academy.backend.service.PostOffice;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -42,8 +39,8 @@ public class PostController {
         return postFeign.getAllPosts();
     }
 
-    @GetMapping("/post/{postId}")
-    public PostModel getPostById(@PathVariable String postId){
+    @GetMapping("/post")
+    public PostModel getPostById(@RequestParam String postId){
         return postFeign.getPostById(postId);
     }
 
@@ -59,13 +56,13 @@ public class PostController {
         return clientFeign.getAllClients();
     }
 
-    @GetMapping("/client/{clientId}")
-    public ClientModel getClientById(@PathVariable String clientId){
+    @GetMapping("/client")
+    public ClientModel getClientById(@RequestParam String clientId){
         return clientFeign.getClientById(clientId);
     }
 
-    @GetMapping("/{postId}")
-    public PostResponse getPostDetails(@PathVariable String postId){
+    @GetMapping
+    public PostResponse getPostDetails(@RequestParam String postId){
         return postOffice.getPostDetails(postId);
     }
 }

@@ -5,6 +5,7 @@ import kz.dar.academy.backend.model.PostModel;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
@@ -17,6 +18,6 @@ public interface ClientFeign {
     @GetMapping("/client/all")
     List<ClientModel> getAllClients();
 
-    @GetMapping("/client/{clientId}")
-    ClientModel getClientById(@PathVariable String clientId);
+    @GetMapping("/client")
+    ClientModel getClientById(@RequestParam String clientId);
 }
